@@ -43,6 +43,11 @@ resource "aws_codebuild_project" "main" {
       name  = "ECR_NAME"
       value = aws_ecr_repository.youtube.name
     }
+
+    environment_variable {
+      name  = "ECR_VERSION"
+      value = "latest"
+    }
   }
 }
 
