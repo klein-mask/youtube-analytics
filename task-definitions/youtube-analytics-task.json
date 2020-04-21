@@ -1,18 +1,21 @@
-{
-    "family": "youtube-analitics",
-    "containerDefinitions": [
+[
+    {
+        "name": "flask",
+        "image": "670756759498.dkr.ecr.ap-northeast-1.amazonaws.com/youtube-analytics:latest",
+        "essential": true,
+        "portMappings": [
         {
-            "name": "flask",
-            "image": "670756759498.dkr.ecr.ap-northeast-1.amazonaws.com/youtube-analytics:latest",
-            "essential": true,
-            "portMappings": [
-            {
-                "containerPort": 5000,
-                "hostPort": 80
-            }
-            ],
-            "memory": 512,
-            "cpu": 256
+            "containerPort": 5000,
+            "hostPort": 5000
         }
-    ]
-}
+        ],
+        "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+                "awslogs-group": "/ecs/youtube_analytics",
+                "awslogs-region": "ap-northeast-1",
+                "awslogs-stream-prefix": "youtube_analytics"
+            }
+        }
+    }    
+]

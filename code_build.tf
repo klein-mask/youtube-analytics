@@ -33,7 +33,7 @@ resource "aws_codebuild_project" "main" {
     type                        = "LINUX_CONTAINER"
     image_pull_credentials_type = "CODEBUILD"
     privileged_mode             = true
-    
+
     environment_variable {
       name  = "ECR_ID"
       value = data.aws_caller_identity.self.account_id
